@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>ESTUDIANTE</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body class="w-100 d-flex flex-column justify-content-center align-items-center">
+<h1 class="w-50 text-center">Ingresar Estudiante</h1>
+	<form th:action="@{/formEstudiante}" th:object="${estudiante}" method="post" class="w-25">
+			<label>Nombre :</label><br>
+			<input type="text" th:field="*{nombre}" class="form-control"><br>
+			<span th:errors="*{nombre}" style="color : #E81505"></span>
+			
+			<label>Apellido:</label><br>
+			<input type="text" th:field="*{apellido}" class="form-control"><br>
+			<span th:errors="*{apellido}" style="color : #E81505"></span>
+			
+			<label>Carne:</label><br>
+			<input type="number" th:field="*{carne}" class="form-control"><br>
+			<span th:errors="*{carne}" style="color : #E81505"></span>
+			
+			<label>Carrera:</label><br>
+			<input type="text" th:field="*{carrera}" class="form-control"><br>
+			<span th:errors="*{carrera}" style="color : #E81505"></span>
+		
+			<input type="submit" value="Agregar estudiante" class="form-control btn btn-success">
+	</form>
+	<div class="w-50 d-flex flex-row">
+	<form th:action="@{/borrarEstudiante}" method = "post" class="w-50 p-5">
+	<label>Borrar codigo por estudiante</label>
+	<br><input type="number" name= "c_usuario" class="form-control">
+	<br>
+	<input type="submit" value="Borrar" class="form-control btn btn-danger">
+	<br>
+	</form>
+	<br>
+	
+	<form th:action="@{/filtrar}" method = "post" class="w-50 p-5">
+	<label>Cadena por la que que se desea filtar</label>
+	<br> 
+	<input type="text" name= "nombre" class="form-control">
+	<br>
+	<input type="submit" value="Filtrar" class="form-control btn btn-info">
+	<br>
+	</form>
+	</div>	
+	<form th:action="@{/editar}" method = "post" class="w-25">
+	<label>Editar estudiante</label> 
+	<input type="number" name= "c_usuario" class="form-control">
+	<br>
+	<input type="submit" value="Editar" class="form-control btn btn-warning text-white">
+	<br>
+	</form>
+	<br>
+	
+	<a href="/listado"><button class="btn btn-light shadow">Ver todos los estudiantes</button></a>
+</body>
+</html>

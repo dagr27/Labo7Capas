@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Modificar estudiante</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body class="w-100 d-flex flex-column align-items-center">
+
+	<h2>Modificar Estudiante</h2>
+	<form th:action="@{/editarEstudiante}" class="w-25" th:object="${estudiantes}" method="post">
+			<input type="hidden" th:field="*{c_usuario}">
+			<label>Nombre :</label><br>
+			<input type="text" th:field="*{nombre}" class="form-control"><br>
+			<span th:errors="*{nombre}" style="color : #E81505"></span><br>
+			
+			<label>Apellido:</label><br>
+			<input type="text" th:field="*{apellido}" class="form-control"><br>
+			<span th:errors="*{apellido}" style="color : #E81505"></span><br>
+			
+			<label>Carne:</label><br>
+			<input type="number" th:field="*{carne}" class="form-control"><br>
+			<span th:errors="*{carne}" style="color : #E81505"></span><br>
+			
+			<label>Carrera:</label><br>
+			<input type="text" th:field="*{carrera}" class="form-control"><br>
+			<span th:errors="*{carrera}" style="color : #E81505"></span><br>
+		
+		<input type="submit" value="Editar estudiante" class="form-control btn btn-warning text-white">
+	</form>
+	<br>
+	<button class="w-25 form-control btn btn-light shadow "><a href="/inicio">Volver</a></button>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlms:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Lista de Estudiantes</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body class="w-100 d-flex flex-column align-items-center">
+	<H1>Listado de estudiantes</H1>
+	<table class="w-50 table">
+		<thead>
+			<th>Codigo</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Carne</th>
+			<th>Carrera</th>
+		</thead>
+		<th:block th:each="estudiante, row: ${estudiantes}">
+			<tr>
+				<td th:text="*{estudiante.c_usuario}"/>
+				<td th:text="*{estudiante.nombre}"/>
+				<td th:text="*{estudiante.apellido}"/>
+				<td th:text="*{estudiante.carne}"/>
+				<td th:text="*{estudiante.carrera}"/>
+			</tr>
+		</th:block>
+	</table>
+	<a href="/inicio"><button class="shadow btn btn-light">Volver</button></a>
+
+</body>
+</html>
